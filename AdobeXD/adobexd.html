@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Explore Uden Rukshitha's Adobe XD Travel Website Prototype showcasing responsive design and auto-animations.">
+  <meta name="keywords" content="Uden Rukshitha, Adobe XD, travel website, prototype, UI/UX design, auto-animate, responsive design">
+  <title>Travel Website - Adobe XD</title>
+  <link rel="icon" type="image/png" href="AdobeXD/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Responsive Travel Website Prototype</h1>
+    <p>A responsive Adobe XD prototype crafted for both desktop and mobile, featuring engaging visuals and seamless auto-animations.</p>
+  </header>
+
+  <section>
+    <img src="AdobeXD/Main.png" alt="Travel Website Hero Preview" style="width:100%; border-radius:12px;">
+  </section>
+
+  <section>
+    <h2>Key Features</h2>
+    <ul>
+      <li>✔️ Fully responsive designs for desktop & mobile</li>
+      <li>✔️ Smooth page transitions with Adobe XD Auto-Animate</li>
+      <li>✔️ Engaging hero sections and interactive nav bars</li>
+      <li>✔️Clean layout with a modern UI/UX feel</li>
+    </ul>
+  </section>
+
+
+  <section>
+   <iframe title="Desktop Prototype"
+    class="xd-embed"
+    width="100%"
+    height="500"
+    src="https://xd.adobe.com/embed/77f83626-e617-4956-8f0d-a12a59df95e6-22ab/" 
+    allowfullscreen></iframe>
+</section>
+    
+<section>
+  <h2>Mobile View</h2>
+  <iframe title="Mobile Prototype"
+    class="xd-embed"
+    width="100%"
+    height="700"
+    src="https://xd.adobe.com/embed/75bf4c4c-df82-4e1f-baf9-d63994a71176-20ec/" 
+    allowfullscreen></iframe>
+</section>
+
+  <section>
+    <h2>Tools Used</h2>
+    <ul>
+      <li>📱 Adobe XD – UI Design, Auto-Animate, Responsive Resize</li>
+      <li>📐 Repeat Grids & Components for efficient layout</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Design Process</h2>
+    <p>
+      I began by sketching layout wireframes, then built responsive artboards in Adobe XD for both desktop and mobile. I applied consistent design patterns, built components for reusability, and animated page flows using Auto-Animate. Finally, I shared the prototype links for testing and presentation.
+    </p>
+  </section>
+
+  <section>
+    <h2>More Screenshots</h2>
+    <div class="gallery">
+      <img src="AdobeXD/1.png" alt="Desktop Preview" class="clickable-image" onclick="openFullscreen(this)">
+      <img src="AdobeXD/2.png" alt="Mobile Preview" class="clickable-image" onclick="openFullscreen(this)">
+      <img src="AdobeXD/3.png" alt="Animations Preview" class="clickable-image" onclick="openFullscreen(this)">
+    </div>
+  </section>
+
+  <footer>
+    <a href="/udenrukshitha/" class="btn">← Back to Home</a>
+  </footer>
+
+  <div id="fullscreen-overlay" onclick="closeFullscreen()">
+    <img src="" id="fullscreen-img" />
+  </div>
+
+  <script>
+    function openFullscreen(img) {
+      const overlay = document.getElementById('fullscreen-overlay');
+      const fullscreenImg = document.getElementById('fullscreen-img');
+      fullscreenImg.src = img.src;
+      overlay.style.display = 'flex';
+    }
+
+    function closeFullscreen() {
+      document.getElementById('fullscreen-overlay').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
