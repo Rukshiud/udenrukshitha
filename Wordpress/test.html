@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="PetCare WordPress website created by Uden Rukshitha using free tools and themes.">
+  <meta name="keywords" content="PetCare, WordPress, Astra Theme, Ninja Forms, WordPress portfolio, Uden Rukshitha">
+  <title>PetCare – WordPress Website</title>
+  <link rel="stylesheet" href="Styles.css">
+  <link rel="icon" type="image/png" href="favicon-32x32.png">
+  
+</head>
+<body>
+
+  <header>
+    <h1>🐾 PetCare – WordPress Website</h1>
+    <p>A fully responsive and user-friendly pet care site crafted with free tools and the Astra theme.</p>
+    <img src="Media/logo.png" alt="PetCare Homepage Screenshot">
+  </header>
+
+  <section>
+    <h2>📘 Project Overview</h2>
+    <p>
+      <span class="highlight">PetCare</span> is a clean, fully responsive WordPress website made for a fictional pet care service. 
+      Built using the free Astra theme and plugins, it demonstrates my ability to create professional layouts using only open-source tools.
+    </p>
+  </section>
+
+  <section>
+    <h2>🧩 Key Features</h2>
+    <ul>
+      <li>Mobile-friendly responsive design</li>
+      <li>Customized layout using <span class="highlight">Astra Theme</span></li>
+      <li>Functional contact form with <span class="highlight">Ninja Forms</span></li>
+      <li>Spam protection via <span class="highlight">Antispam Bee</span></li>
+      <li>Multi-page structure: Home, About, Services, Contact</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🎯 My Role</h2>
+    <p><span class="highlight">Frontend Developer & WordPress Customizer</span></p>
+  </section>
+
+  <section>
+    <h2>🛠 Tools & Technologies</h2>
+    <ul>
+      <li>WordPress (Local setup with LocalWP)</li>
+      <li>Astra Theme</li>
+      <li>Ninja Forms</li>
+      <li>Antispam Bee</li>
+      <li>Gutenberg Editor</li>
+      <li>Custom CSS enhancements</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>📷 Screenshots</h2>
+   <div class="screenshot-grid">
+  <img src="Media/1.1.png" alt="Home Page Screenshot" onclick="openFullscreen(this)">
+  <img src="Media/1.png" alt="Contact Page Screenshot" onclick="openFullscreen(this)">
+  <img src="Media/2.png" alt="Mobile View Screenshot" onclick="openFullscreen(this)">
+    <img src="Media/3.png" alt="Mobile View Screenshot" onclick="openFullscreen(this)">
+
+</div>
+
+  </section>
+
+<div id="fullscreen-overlay" onclick="closeFullscreen()" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background-color: rgba(0, 0, 0, 0.9); justify-content:center; align-items:center; z-index:1000;">
+  <button onclick="closeFullscreen()" style="position:absolute; top:20px; right:30px; font-size:2rem; background:none; border:none; color:white; cursor:pointer; z-index:1001;">&times;</button>
+  <img id="fullscreen-img" src="" alt="Fullscreen View" style="max-width:90%; max-height:90%; border-radius:10px; box-shadow:0 4px 12px rgba(255,255,255,0.2);" />
+</div>
+
+
+
+  <section>
+    <h3>▶️ Walkthrough Video</h3>
+<video width="100%" controls>
+  <source src="Media/Video.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+  </section>
+
+  <section>
+    <h2>📨 User Interaction</h2>
+    <ul>
+      <li>Visitors can submit messages using the contact form</li>
+      <li>Automatic spam filtering with Antispam Bee</li>
+      <li>Fast and clean layout optimized for user experience</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>🔒 Hosting</h2>
+    <p>This site is currently hosted locally. Screenshots and walkthrough video are provided. Source files available upon request.</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Uden Rukshitha – WordPress Project Showcase
+  </footer>
+
+<script>
+  function openFullscreen(img) {
+    const overlay = document.getElementById('fullscreen-overlay');
+    const fullscreenImg = document.getElementById('fullscreen-img');
+    fullscreenImg.src = img.src;
+    overlay.style.display = 'flex';
+  }
+
+  function closeFullscreen() {
+    document.getElementById('fullscreen-overlay').style.display = 'none';
+  }
+</script>
+
+
+  
+</body>
+</html>
