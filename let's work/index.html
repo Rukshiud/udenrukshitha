@@ -1,1 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Section</title>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+   * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(to right, #2B2B2B, #0A0A0A);
+      color: #333;
+      line-height: 1.6;
+      min-height: 80vh;
+      overflow-x: hidden;
+    }
+
+
+    header {
+  text-align: center;
+  padding: 20px 40px;
+}
+
+.gradient-text {
+  font-size: 60px;
+  font-weight: 800;
+  background: linear-gradient(to right, #f0f0f0, #ffcc00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+    /* Navigation - Desktop */
+    nav {
+    
+      position: relative;
+    }
+
+
+    .desktop-nav {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      padding: 15px 0;
+    }
+
+    .desktop-nav li {
+      margin: 0 50px;
+    }
+
+    .desktop-nav li a {
+      text-decoration: none;
+      color: #f0f0f0;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+      transition: color 0.3s, transform 0.3s;
+      position: relative;
+      padding: 5px 0;
+    }
+
+    .desktop-nav li a:hover {
+      
+      transform: translateY(-2px);
+    }
+
+    .desktop-nav li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #ffcc00;
+      transition: width 0.3s;
+    }
+
+    .desktop-nav li a:hover::after {
+      width: 100%;
+    }
+
+    /* Hamburger Menu - Mobile */
+    .hamburger-container {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 100;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .hamburger {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: #ffcc00;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Hamburger Animation to X */
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 10, 10, 0.98);
+      z-index: 90;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      text-align: center;
+      transform: translateY(20px);
+      transition: transform 0.4s ease;
+    }
+
+    .mobile-nav.active ul {
+      transform: translateY(0);
+    }
+
+    .mobile-nav ul li {
+      margin: 25px 0;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 0.4s ease;
+    }
+
+    .mobile-nav.active ul li {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered animation for menu items */
+    .mobile-nav.active ul li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-nav.active ul li:nth-child(2) { transition-delay: 0.2s; }
+    .mobile-nav.active ul li:nth-child(3) { transition-delay: 0.3s; }
+    .mobile-nav.active ul li:nth-child(4) { transition-delay: 0.4s; }
+
+    .mobile-nav ul li a {
+      color: #f0f0f0;
+      font-size: 28px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 0.3s, transform 0.3s;
+      display: inline-block;
+      padding: 10px 20px;
+      position: relative;
+    }
+
+    .mobile-nav ul li a:hover {
+      color: bl;
+      transform: scale(1.05);
+    }
+
+    .mobile-nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 20px;
+      right: 20px;
+      height: 2px;
+      background-color: #ffcc00;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .mobile-nav ul li a:hover::after {
+      transform: scaleX(1);
+    }
+
+    /* Main section */
+    main {
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .intro {
+      display: flex;
+      max-width: 1200px;
+      width: 100%;
+      border-top: 1px solid #ffcc00;
+      border-bottom: 1px solid #ffcc00;
+    }
+
+    .text-section {
+      flex: 2;
+      padding: 30px;
+      color: #f0f0f0;
+      order: 1;
+    }
+
+    .description {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 25px;
+      line-height: 1.8;
+    }
+
+ 
+
+    /* Responsive Design */
+    @media screen and (max-width: 1024px) {
+      .desktop-nav li {
+        margin: 0 25px;
+      }
+      
+      .gradient-text {
+        font-size: 50px;
+      }
+    }
+
+        @media screen and (min-width: 769px) {
+  nav {
+    border-top: 1px solid #ffcc00;
+    border-bottom: 1px solid #ffcc00;
+    position: relative;
+  }
+}
+      
+ @media screen and (max-width: 768px) {
+  /* Remove top border on mobile */
+  nav {
+    border-top: 1px solid #ffcc00;
+    border-bottom: 1px solid #ffcc00;
+     position: relative;  /* make top offset work */
+    margin-top: -10px;   
+  }
+      
+ 
+
+  /* Hide desktop nav */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .hamburger-container {
+    display: block;
+    margin-top: 10%;
+  }
+
+  /* Stack intro section */
+    .intro {
+        flex-direction: column;
+        border-left: none;
+        border-right: none;
+        border-top: none; /* Also remove top border from intro on mobile */
+      }
+  /* Image first */
+  .image-section {
+    order: 1;
+    border-left: none;
+    border-bottom: 1px solid #ffcc00;
+    padding: 50px 0;
+  }
+
+
+  .gradient-text {
+    font-size: 42px;
+  }
+
+
+
+}
+
+
+    @media screen and (max-width: 480px) {
+      header {
+        padding: 15px 10px;
+      }
+      
+      .gradient-text {
+        font-size: 36px;
+      }
+      
+      main {
+        padding: 20px 10px;
+      }
+      
+      .mobile-nav ul li a {
+        font-size: 24px;
+      }
+    }
+
+ 
+  
+        .container {
+            position: relative;
+            margin-top: 2%;
+            margin-bottom:5%;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            
+        }
+        
+
+/* Section Wrapper */
+.contact-wrapper {
+  display: flex;
+  max-width: 1100px;
+  margin: 10px auto;
+  padding: 20px;
+}
+
+/* Vertical Line */
+.vertical-line {
+  width: 2px;
+  background:linear-gradient(to right, #f0f0f0, #ffcc00);
+  margin-right: 40px;
+}
+
+/* Content */
+.contact-section {
+  flex: 1;
+}
+
+/* Intro Text */
+.intro-text {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  text-align: center;
+  color: #cfcfe8;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+/* Heading */
+.contact-section h2 {
+  font-size: 26px;
+  margin-bottom: 30px;
+  color:#f0f0f0;
+}
+
+/* Social Links */
+.social-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 25px 60px;
+  margin-bottom: 50px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color:#ffcc00;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+
+.social-item i {
+  font-size: 22px;
+}
+
+.social-item:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 16px 42px;
+  background:  #ffcc00;
+  color: #fff;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  box-shadow:  #ffcc00;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: linear-gradient(to right, #f0f0f0, #ffcc00);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .contact-wrapper {
+    flex-direction: column;
+    margin-top: 50px;
+  }
+
+.vertical-line {
+ position: none;
+}
+
+
+  .social-links {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .intro-text {
+    font-size: 16px;
+  }
+}
+</style>
+</head>
+<body>
+
+
+  <header>
+    <tit><span class="gradient-text">Uden Rukshitha</span></tit>
+  </header>
+
+  <nav>
+    <ul class="desktop-nav">
+      <li><a href="C:\Users\user\OneDrive\Desktop\New portfolio/">About</a></li>
+      <li><a href="Projects/index.html">Projects</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="index.html">Let's Work</a></li>
+    </ul>
+    
+    <!-- Hamburger Menu for Mobile -->
+    <div class="hamburger-container" id="hamburgerContainer">
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html">About</a></li>
+      <li><a href="Projects/index.html">Projects</a></li>
+      <li><a href="blog/index.html">Blog</a></li>
+      <li><a href="index.html">Let's Work</a></li>
+    </ul>
+  </div>
+
+
+
+<section class="contact-wrapper">
+     <!-- Vertical Line -->
+  <div class="vertical-line"></div>
+ 
+  <!-- Content -->
+  <div class="contact-section">
+
+
+  
+    <!-- Centered Intro Text -->
+    <p class="intro-text">
+      Currently, I work as an IT & Customer Service Assistant at <a href="https://edys.lk/" >EDYS Holdings</a>, where I handle technical support and client communication.
+      I’m also open to working independently on digital marketing projects, including online promotion, content strategies,
+      and web-based solutions. If you’re interested in collaborating, feel free to get in touch.
+    </p>
+
+    <h2>Find me on:</h2>
+
+
+    <div class="social-links">
+      <a href="https://www.linkedin.com/in/uden-rukshitha/" target="_blank" class="social-item">
+        <i class="fab fa-linkedin-in"></i> LinkedIn
+      </a>
+
+      <a href="https://www.instagram.com/_ruk_shi_/" target="_blank" class="social-item">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+
+      <a href="https://github.com/Rukshiud/udenrukshitha" target="_blank" class="social-item">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+    </div>
+
+    <a href="mailto:rukshithauden@gmail.com" class="btn">GET IN TOUCH</a>
+
+  </div>
+</section>
+<script>
+
+   const hamburgerContainer = document.getElementById('hamburgerContainer');
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+  const closeMobileMenu = () => {
+    hamburger?.classList.remove('active');
+    mobileNav?.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  };
+
+  const openMobileMenu = () => {
+    hamburger?.classList.add('active');
+    mobileNav?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  if (hamburgerContainer && hamburger && mobileNav) {
+    hamburgerContainer.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.contains('active')
+        ? closeMobileMenu()
+        : openMobileMenu();
+    });
+
+    mobileLinks.forEach(link =>
+      link.addEventListener('click', closeMobileMenu)
+    );
+
+    document.addEventListener('click', (e) => {
+      if (
+        mobileNav.classList.contains('active') &&
+        !hamburgerContainer.contains(e.target) &&
+        !mobileNav.contains(e.target)
+      ) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMobileMenu();
+    });
+  }
+
+
+</script>
+</body>
+</html>
 
