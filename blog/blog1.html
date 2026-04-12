@@ -525,6 +525,59 @@ They sold bubble tea cheaply, and they lowered the quality of the product. but t
 </div>
 
 
+<script>
+  <script>
 
+   const hamburgerContainer = document.getElementById('hamburgerContainer');
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const mobileLinks = document.querySelectorAll('.mobile-nav a');
+
+  const closeMobileMenu = () => {
+    hamburger?.classList.remove('active');
+    mobileNav?.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  };
+
+  const openMobileMenu = () => {
+    hamburger?.classList.add('active');
+    mobileNav?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  };
+
+  if (hamburgerContainer && hamburger && mobileNav) {
+    hamburgerContainer.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileNav.classList.contains('active')
+        ? closeMobileMenu()
+        : openMobileMenu();
+    });
+
+    mobileLinks.forEach(link =>
+      link.addEventListener('click', closeMobileMenu)
+    );
+
+    document.addEventListener('click', (e) => {
+      if (
+        mobileNav.classList.contains('active') &&
+        !hamburgerContainer.contains(e.target) &&
+        !mobileNav.contains(e.target)
+      ) {
+        closeMobileMenu();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768) closeMobileMenu();
+    });
+  }
+
+
+</script>
+</script>
 
 </html>
